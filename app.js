@@ -39,10 +39,20 @@ app.get("/chirps", (req, res) => {
 
 //Create new chirp
 app.post("/chirps", (req, res) => {
-  // Step 1: 
+  // Step 1: Retrieve new chirp from the front end (user input)
+  // Step 2: Store new chirp in the database
+  // Step 3: Redirect back to GET /chirps
+  var newChirpFromUser = req.body;
+
+  models.Chirp.create(newChirpFromUser).then(() => {
+    res.redirect("/chirps");
+  });
 });
 
 //Get specific chirp
+app.get("/chirps/:id/edit", (req, res) => {
+  // Step 1: 
+});
 
 //Edit a chirp
 
